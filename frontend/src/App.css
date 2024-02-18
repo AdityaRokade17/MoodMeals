@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300');
+body {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.searchinput::placeholder{
+    padding: 2px;
+}
+.searchinput {
+    padding: 0;
+    text-indent: 10px;
+}
+html {
+    scroll-behavior: smooth;
+}
