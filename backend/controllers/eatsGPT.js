@@ -1,9 +1,10 @@
 const OpenAI = require("openai");
+require('dotenv').config();
 
-
+const apiKey = process.env.apikey;
 
 const openai = new OpenAI( {
-    apiKey : "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"
+    apiKey : apiKey
 })
 
 exports.eatsResponse = async ( req , res) => {
@@ -20,7 +21,7 @@ exports.eatsResponse = async ( req , res) => {
         const response = await openai.chat.completions.create({
             model : 'gpt-3.5-turbo',
             messages : [{"role" : "user" , "content" : promt}],
-            max_tokens : 50
+            max_tokens : 10
         })
         console.log(response.choices[0].message.content);
         res.send(response.choices[0].message.content)

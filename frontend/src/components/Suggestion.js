@@ -1,5 +1,5 @@
 import React from 'react';
-import pizzaHut from "../Assets/pizzahut.jpg";
+
 
 const Suggestion = ({ selectedmooddata }) => {
     // if (!selectedmooddata || !selectedmooddata.foundmoodmeals) {
