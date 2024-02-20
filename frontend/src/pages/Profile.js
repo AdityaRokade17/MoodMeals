@@ -8,7 +8,7 @@ const Profile = () => {
   const [selectedmooddata , setSelectedMoodData] = useState("Happy");
 
   return (
-    <div className='h-[100vh]'>
+    <div className=''>
       
       <div className='bg-black'>
         <Header/>
@@ -21,12 +21,12 @@ const Profile = () => {
             <Emoji setSelectedMoodData={setSelectedMoodData}/>
 
             {/* Suggestion Container */}
-            <div className=' w-10/12 h-11/12'>
+            <div className=''>
               <Suggestion selectedmooddata={selectedmooddata}/>
             </div>
 
             {/* comming soon */}
-            <div className='border h-[10rem] w-full flex flex-col justify-center items-center'>
+            <div className='border w-full h-[10rem] bg-neutral-900 flex flex-col justify-center items-center'>
               <h1>Trending meals near your location</h1>
               <h1 className='text-red-600'>Comming Soon..</h1>
             </div>

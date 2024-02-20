@@ -3,10 +3,10 @@ import React from 'react'
 const Contact = () => {
   return (
     <div id='contact' className='bg-neutral-900 flex flex-col gap-10 items-center justify-center p-5 '>
-          <div className='w-[60rem] text-white flex flex-col gap-4 items-center'>
-            <h1 className='font-extrabold text-6xl text-white '><span className='text-blue-600'>Contact</span> us</h1>
+          <div className=' text-white flex flex-col gap-4 items-center'>
+            <h1 className='font-extrabold text-3xl sm:text-6xl text-white '><span className='text-blue-600'>Contact</span> us</h1>
           </div>
-          <div className='flex flex-col gap-2 items-center w-[25rem] bg-black p-5 rounded-lg'>
+          <div className='flex flex-col gap-2 items-center h-full sm:w-6/12 bg-black p-5 rounded-lg'>
           <form className="mt-6 w-full">
                     <div className="mb-2">
                         <label

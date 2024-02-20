@@ -16,7 +16,7 @@ const Emoji = ({setSelectedMoodData }) => {
 
         try{
             console.log("emoji me selected mood" , selectedmood);
-            const res = await axios.get(`http://localhost:4000/api/v1/moodmeals/getmoodmeals/${selectedmood}`)
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/moodmeals/getmoodmeals/${selectedmood}`)
             console.log(res.data);
             setSelectedMoodData(res.data)
             setActive(selectedmood);

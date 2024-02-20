@@ -1,10 +1,20 @@
 import React from 'react';
-
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 const Suggestion = ({ selectedmooddata }) => {
     // if (!selectedmooddata || !selectedmooddata.foundmoodmeals) {
     //     return <div>Select Your Mood... </div>; // Render a loading indicator if data is not available yet
     // }
+
+    const settings = {
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 2, 
+        slidesToScroll: 1
+      };
 
     const moodMeals = selectedmooddata.foundmoodmeals;
     console.log("moodMeals", moodMeals);
@@ -16,21 +26,23 @@ const Suggestion = ({ selectedmooddata }) => {
     const meals = moodMeals.meals;
 
     return (
-        <div className='flex gap-5 border border-neutral-800 p-5 bg-neutral-900 rounded-2xl transform transition duration-500'>
-            {meals.map((meal, index) => (
-                <div key={index} className='border border-neutral-800 rounded-2xl w-[15rem] cursor-pointer flex flex-col justify-between'>
-                    <div className='inset-0 bg-black opacity-70 rounded-2xl'>
-                        <img alt='' className='object-cover h-[12rem] w-full rounded-2xl' src={meal.imageurl} />
-                    </div>
-                    <div className='p-3 flex flex-col gap-2 h-full bg-black rounded-b-2xl '>
-                        <h1 className='text-2xl font-bold'>{meal.mealname}</h1>
-                        {/* Adjust your content based on meal properties */}
-                        <h2>{meal.restos?.length || 0} places</h2>
-                        <p className='text-green-600 font-semibold text-lg'>₹ {meal.mealprice}</p>
-                    </div>
+        <Slider {...settings} className='flex justify-center items-center gap-5 w-[20rem] h-[20rem] sm:w-[35rem] sm:h-[25rem] bg-neutral-900 rounded-2xl transform transition duration-500'>
+        {meals.map((meal, index) => (
+          <div key={index} className=''>
+            <div className='border border-neutral-800 cursor-pointer rounded-t-2xl w-[10rem] h-[10rem] sm:w-[15rem] sm:h-[15rem] m-3'>
+              <div className='w-full h-full'>
+                <img alt='' className='object-cover h-full rounded-t-2xl w-full bg-black opacity-50' src={meal.imageurl} />
+                <div className='bg-black p-2'>
+                    <h1 className='text-2xl font-bold text-white'>{meal.mealname}</h1>
+                    <h2 className='text-white'>{meal.restos?.length || 0} places</h2>
+                    <p className='text-green-600 font-semibold text-lg'>₹ {meal.mealprice}</p>
                 </div>
-            ))}
-        </div>
+              </div>
+              
+            </div>
+          </div>
+        ))}
+      </Slider>
     );
 };
 

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
+
 const Login = ({onLoginSuccess}) => {
     const navigate = useNavigate();
     const [logininfo, setLoginInfo] = useState({
@@ -24,10 +25,11 @@ const Login = ({onLoginSuccess}) => {
 
         try {
             //console.log( "llllllll", logininfo);
-            console.log(process.env.REACT_APP_BASE_URL);
+            console.log("Wdw")
+            // console.log(`wss ${process.env.REACT_APP_API_URL}`);
 
             const { data } = await axios.post(
-                "http://localhost:4000/api/v1/login",
+                `${process.env.REACT_APP_API_URL}/login`,
                 logininfo,
                 { withCredentials: true }
             );
@@ -51,11 +53,11 @@ const Login = ({onLoginSuccess}) => {
 
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden bg-black">
-            <div className="w-full p-6 m-auto bg-neutral-900 rounded-md shadow-xl lg:max-w-xl">
+            <div className="p-6 m-auto bg-neutral-900 rounded-md shadow-xl w-10/12 sm:w-1/3 ">
                 <h1 className="text-3xl font-semibold text-center text-white underline uppercase decoration underline-offset-8">
                     Log<span className='text-blue-600'>in</span>
                 </h1>
-                <form className="mt-6" onSubmit={submitHandler}>
+                <form className="mt-6 " onSubmit={submitHandler}>
                     <div className="mb-2">
                         <label
                             htmlFor="username"
